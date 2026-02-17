@@ -1,4 +1,6 @@
 ---
+import Navigation from '../components/Navigation.astro';
+
 import '../styles/global.css';
 
 const pageTitle = 'About Me';
@@ -36,9 +38,7 @@ const favoriteColor = 'lightseagreen';
     </style>
   </head>
   <body>
-    <a href="/">Home</a>
-    <a href="/about/">About</a>
-    <a href="/blog/">Blog</a>
+    <Navigation />
 
     <h1>{pageTitle}</h1>
     <h2>... and my new Astro site!</h2>
