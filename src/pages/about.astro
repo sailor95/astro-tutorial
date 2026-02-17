@@ -1,5 +1,16 @@
 ---
+const pageTitle = 'About Me';
 
+const identity = {
+  firstName: 'Dave',
+  country: 'Taiwan',
+  occupation: 'Software Engineer',
+  hobbies: ['coding', 'reading', 'traveling'],
+};
+
+const skills = ['HTML', 'CSS', 'JavaScript', 'React', 'Astro', 'TypeScript'];
+
+const favoriteColor = 'lightseagreen';
 ---
 
 <html lang="en">
@@ -9,24 +20,39 @@
     <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Dave's Astro</title>
+    <title>{pageTitle}</title>
+    <style define:vars={{ favoriteColor }}>
+      h1 {
+        color: var(--favoriteColor);
+        font-size: 4rem;
+      }
+      .skills {
+        color: green;
+        font-size: 2rem;
+        font-weight: bold;
+      }
+    </style>
   </head>
   <body>
     <a href="/">Home</a>
     <a href="/about/">About</a>
     <a href="/blog/">Blog</a>
 
-    <h1>About Me</h1>
+    <h1>{pageTitle}</h1>
     <h2>... and my new Astro site!</h2>
 
     <p>
-      I am working through Astro's introductory tutorial. This is the second
-      page on my website, and it's the first one I built myself!
+      {identity.firstName} is a {identity.occupation} who lives in {
+        identity.country
+      }.
     </p>
 
     <p>
-      This site will update as I complete more of the tutorial, so keep checking
-      back and see how my journey is going!
+      {identity.firstName} likes {identity.hobbies.join(', ')}.
+    </p>
+
+    <p class="skills">
+      {identity.firstName} is skilled in {skills.join(', ')}.
     </p>
   </body>
 </html>
